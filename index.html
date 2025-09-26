@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imobiliária Vidigal</title>
+    <link rel="icon" href="./img/botao-home.png" type="image/png">
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+    <script src="./javascript/script.js" defer></script>
+    <script src="./javascript/sliderscript.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <header class="container">
+            <div class="nav-menu">
+                <button id="menu-button" class="menu-toggle">&#9776;</button>
+                <img class="logo" src="./img/logo.jpg" alt="logo">
+            </div>
+            <div class="menu-overflow">
+                <button class="closed-menu">&times;</button>
+                <nav class="menu active">
+                    <ul>
+                        <li class="menu-item"><a href="./index.html">Home</a></li>
+                        <li class="menu-item"><a href="./pages/contact.html">Localização</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="slider">
+            <div class="slide">
+                <img src="./img/Sitio1.jpg" alt="Imagem 1">
+            </div>
+            <div class="slide">
+                <img src="./img/sitio2.jpeg" alt="Imagem 2">
+            </div>
+            <div class="slide">
+                <img src="./img/Sitio3.jpg" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="./img/sitio4.jpg" alt="Imagem 4">
+            </div>
+        </div>
+        <article>
+            <h2>Bem-vindo à Imobiliária de Porto Firme - Vidigal imóveis</h2>
+    
+            <p>
+                A imobiliária trabalha com venda e compra de imóveis rurais e urbanos como casas, apartamentos, loft, flat,
+                lotes, sítios, chácaras, fazendas. Localiza-se em Porto Firme Minas Gerais.
+                Venha nos visitar e fazer negócio conosco. Tratar com Paulo Roberto Vidigal (CRECI-MG 39207) e
+                Claudineia(Néia) S.R. Santos.
+            </p>
+        </article>
+        <aside>
+            <h2>Fale Conosco:</h2>
+            <form action="./PHP/processa_envio.php" method="POST" class="card">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input name="nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input name="telefone" type="tel" class="form-control" id="telefone" placeholder="Digite seu telefone">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" class="form-control" id="mensagem" rows="3" placeholder="Digite sua mensagem"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-center">Enviar</button>
+            </form>
+        </aside>
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2023 Imobiliária Vidigal. Todos os direitos reservados.
+                </div>
+                <div class="map">
+                    <!-- Mapa da localização da empresa -->
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
