@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -32,17 +32,14 @@ class Mensagem
 
 $mensagem = new Mensagem();
 
-// $mensagem->__set('para', $_POST['para']);
-// $mensagem->__set('assunto', $_POST['assunto']);
-// $mensagem->__set('mensagem', $_POST['mensagem']);
-
-
-
 $mensagem->__set('para', 'victorhugo.alvespires7@gmail.com');
-$mensagem->__set('assunto', 'teste');
-$mensagem->__set('mensagem', 'teste');
-
-//print_r($mensagem);
+$mensagem->__set('assunto', 'Contato Cliente Imobiliaria');
+$mensagem->__set(
+	'mensagem',
+	'Nome Cliente:' . $_POST['nome'] . '<br>' .
+	'Telefone Cliente:' . $_POST['telefone'] . '<br>' .
+	'Email Cliente:' . $_POST['email'] . '<br>' .
+	'Mensagem Cliente:' . $_POST['mensagem']);
 
 if (!$mensagem->mensagemValida()) {
 	echo 'Ops! Sua mensagem não é válida';
@@ -51,28 +48,19 @@ if (!$mensagem->mensagemValida()) {
 
 $mail = new PHPMailer(true);
 try {
-	//Server settings
 	$mail->SMTPDebug = false;                      //Enable verbose debug output
 	$mail->isSMTP();                                            //Send using SMTP
 	$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 	$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 	$mail->Username   = 'victorhugo.alvespires7@gmail.com';                     //SMTP username
-	$mail->Password   = '0633471001';                               //SMTP password
+	$mail->Password   = 'jksjcrzsxxoxtplb';                               //SMTP password
 	$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 	$mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
 	//Recipients
 	$mail->setFrom('victorhugo.alvespires7@gmail.com', 'Contato Cliente');
 	$mail->addAddress($mensagem->__get('para'));     //Add a recipient
-	//$mail->addReplyTo('info@example.com', 'Information');
-	//$mail->addCC('cc@example.com');
-	//$mail->addBCC('bcc@example.com');
 
-	//Attachments
-	//$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
-	//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
-
-	//Content
 	$mail->isHTML(true);
 	$mail->Subject = $mensagem->__get('assunto');
 	$mail->Body    = $mensagem->__get('mensagem');
@@ -115,7 +103,7 @@ try {
 					<div class="container">
 						<h1 class="display-4 text-success">Sucesso</h1>
 						<p><?= $mensagem->status['descricao_status'] ?></p>
-						<a href="index.html" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
+						<a href="./../../index.html" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
 					</div>
 
 				<?php } ?>
@@ -125,7 +113,7 @@ try {
 					<div class="container">
 						<h1 class="display-4 text-danger">Ops!</h1>
 						<p><?= $mensagem->status['descricao_status'] ?></p>
-						<a href="index.html" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
+						<a href="../index.html" class="btn btn-success btn-lg mt-5 text-white">Voltar</a>
 					</div>
 
 				<?php } ?>
